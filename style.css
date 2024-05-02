@@ -1,0 +1,105 @@
+.grid-container {
+    display: grid;
+    gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+}
+
+.grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+}
+
+.grid-container-2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 300px);
+    gap: 10px;
+    padding: 10px;
+    background-color: yellow;
+}
+
+.branco {
+    background-color: white;
+    grid-area: b;
+}
+
+.preto {
+    background-color: black;
+    grid-area: p;
+}
+
+
+@media (max-width: 576px) {
+    .grid-container {
+        grid-template-columns: auto;
+    }
+    .grid-container > div:nth-child(odd) {
+        display: none;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: auto auto;
+    }
+    .grid-container > div:nth-child(odd) {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: auto auto auto auto;
+    }
+    .grid-container > div:nth-child(even) {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+    .grid-container {
+        grid-template-columns: auto auto auto auto auto auto;
+    }
+    .grid-container > div:nth-child(odd) {
+        grid-column: span 3;
+    }
+    .grid-container > div:nth-child(even) {
+        grid-column: span 1;
+    }
+   
+}
+
+@media (min-width: 1280px) {
+    .grid-container {
+        grid-template-columns: auto auto auto auto auto auto auto auto;
+    }
+    .grid-container > div:nth-child(odd) {
+        grid-column: span 1;
+    }
+    .grid-container > div:nth-child(even) {
+        grid-column: span 4;
+    }
+
+}
+
+@media (max-width: 1024px) {
+    .grid-container-2 {
+        grid-template-areas:
+            "p p . ."
+            "p p . ."
+            ". b b b";
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-container-2 {
+        grid-template-areas:
+            "p p p p"
+            ". . . ."
+            "b b b b";
+    }
+}
+
